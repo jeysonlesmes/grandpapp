@@ -10,3 +10,11 @@
     margin-top: 14px;
   }
 }
+
+ion-item {
+  .item-native {
+    .item-inner {
+      border: none !important;
+    }
+  }
+}

@@ -1,0 +1,43 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons  slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+      <ion-title>
+        Resultados para: {{ activity }}
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content class="list-avatar-page">
+      <ion-list>
+        <ion-card *ngFor="let activity of activities" [routerLink]="['/activity-inscribe/']">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="8">
+                <ion-card-header>
+                  <ion-card-subtitle>
+                    {{ activity.date }} {{ activity.hour }}
+                    <label style="float: right;">
+                      {{ activity.stars }}
+                      <ion-icon name="star" style="color: yellow;"></ion-icon>
+                    </label>
+                  </ion-card-subtitle>
+  
+                  <ion-card-title>{{ activity.name }}</ion-card-title>
+  
+                  <div style="margin-top: 10px">
+                    <ion-icon name="person"></ion-icon>
+                    {{ activity.available }}
+                  </div>
+                </ion-card-header>
+              </ion-col>
+              <ion-col size="4">
+                <ion-img [src]="activity.image"></ion-img>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card>
+      </ion-list>
+  </ion-content>
+  

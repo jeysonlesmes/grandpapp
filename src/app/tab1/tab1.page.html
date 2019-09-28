@@ -1,25 +1,24 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-icon slot="icon-only" name="people"></ion-icon>
-    </ion-buttons>
     <ion-title>
-      Mis grandpas
+      Mis abuelos
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="list-avatar-page">
   <ion-list>
-    <ion-item *ngFor="let grandpa of grandpas">
-      <ion-avatar slot="start">
-        <img src="{{ grandpa.image }}">
-      </ion-avatar>
-      <ion-label>
-        <h2>{{ grandpa.name }}</h2>
-        <p>{{ grandpa.description }}</p>
-      </ion-label>
-    </ion-item>
+    <ion-card *ngFor="let grandpa of grandpas" [routerLink]="['/detail-grandpa/', grandpa.id]">
+      <ion-item>
+        <ion-avatar slot="start">
+            <img src="{{ grandpa.image }}">
+        </ion-avatar>
+        <ion-label>
+          <h2>{{ grandpa.name }}</h2>
+          <p>{{ grandpa.description }}</p>
+        </ion-label>
+        </ion-item>
+    </ion-card>
   </ion-list>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
