@@ -83,7 +83,7 @@ export interface Activity {
 	available: string;
 	stars: number;
 	image: string;
-	images: Array;
+	images: Array<any>;
     address: String;
 }
 
