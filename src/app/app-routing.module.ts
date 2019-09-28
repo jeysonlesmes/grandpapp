@@ -12,9 +12,10 @@ const routes: Routes = [
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   { 
-		path: 'partner', 
+		path: '', 
 		loadChildren: () => import('./tabs-partner/tabs-partner.module').then(m => m.TabsPartnerPageModule)
-	}
+	},
+  { path: 'activity-partner/:activity', loadChildren: './activity-partner/activity-partner.module#ActivityPartnerPageModule' }
 ];
 @NgModule({
   imports: [
