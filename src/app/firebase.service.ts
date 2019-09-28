@@ -31,6 +31,10 @@ export class FirebaseService {
 	  );
   }
 
+	getActivity(id) {
+		return this.activityCollection.doc<Activity>(id).valueChanges();
+	}
+
 	getActivities() {
 		return this.activities;
 	}

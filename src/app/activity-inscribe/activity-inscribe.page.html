@@ -9,7 +9,7 @@
     </ion-toolbar>
   </ion-header>
 
-<ion-content>
+<ion-content *ngIf="activity" >
     <ion-card>
       <img src="{{ activity.image }}">
       <ion-card-header>

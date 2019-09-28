@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { FirebaseService, Activity } from '../../../src/app/firebase.service';
 
 @Component({
   selector: 'app-activities-search',
@@ -8,32 +9,16 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ActivitiesSearchPage implements OnInit {
   activity: String = ''
-  activities: Array<any> = [
-    {
-      name: 'Caminar en el parque',
-      date: '28/09/2019',
-      hour: '19:20',
-      available: '2/3',
-      stars: 2,
-      id: 1,
-      image: './assets/images/run.jpg'
-    },
-    {
-      name: 'Caminata por la ciudad',
-      date: '28/09/2019',
-      hour: '19:20',
-      available: '1/3',
-      stars: 4,
-      id: 5,
-      image: './assets/images/run.jpg'
-    }
-  ]
+  activities: Array<Activity>
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private activatedRoute: ActivatedRoute, private firebase: FirebaseService) { }
 
   ngOnInit() {
     this.activity = this.activatedRoute.snapshot.paramMap.get('activity');
-    
+
+    this.firebase.getActivities().subscribe(activities => {
+      this.activities = activities
+    })
   }
 
 }
