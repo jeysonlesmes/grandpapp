@@ -11,5 +11,14 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
   }
+	
+	goToMentor() {
+		console.log("asas")
+	}
+
+	goToPartner() {
+		console.log("323232")
+	}
+
 
 }
