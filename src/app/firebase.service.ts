@@ -17,14 +17,26 @@ export class FirebaseService {
 	private grandParentCollection: AngularFirestoreCollection<GrandParent>;
   private grandParents: Observable<GrandParent[]>;
 
-  constructor() { }
+  constructor(db: AngularFirestore) {
+	this.activityCollection = db.collection<Activity>('activities')
+
+	this.activities = this.activityCollection.snapshotChanges().pipe(
+		map(actions => {
+		  return actions.map(a => {
+			const data = a.payload.doc.data();
+			const id = a.payload.doc.id;
+			return { id, ...data };
+		  });
+		})
+	  );
+  }
 
 	getActivities() {
 		return this.activities;
 	}
 
-	createActivity() {
-
+	createActivity(activity: Activity) {
+		return this.activityCollection.add(activity)
 	}
 
 	updateAtivity() {
@@ -61,14 +73,14 @@ export interface Activity {
 	id?: string;
 	name: string;
 	description: string;
-	datetime: string;
-	dateend: string;
-	category: string;
-	enabled: boolean;
-	quantity: number;
-	assistant: number;
+	date: string;
+	hour: string;
 	partner: PartnerActivity;
-	place: PlaceActivity;
+	available: string;
+	stars: number;
+	image: string;
+	images: Array;
+    address: String;
 }
 
 export interface PlaceActivity {
@@ -81,6 +93,7 @@ export interface PlaceActivity {
 export interface PartnerActivity {
 	id?: string;
 	name: string;
+	image: string;
 }
 
 export interface GrandParent {

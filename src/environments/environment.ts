@@ -7,8 +7,8 @@ export const environment = {
 	firebase: {
     apiKey: 'AIzaSyAcZn3MivMfu0PerVHtS4UW8A3ZCDfYzq8',
     authDomain: '<your-project-authdomain>',
-    databaseURL: '<your-database-URL>',
-    projectId: '<your-project-id>',
+    databaseURL: 'https://grandpapp-3b653.firebaseio.com',
+    projectId: 'grandpapp-3b653',
     storageBucket: '<your-storage-bucket>',
     messagingSenderId: '<your-messaging-sender-id>'
   }

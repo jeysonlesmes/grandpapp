@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { FirebaseService, Activity } from '../../../src/app/firebase.service';
 
 @Component({
   selector: 'app-activity-inscribe',
@@ -8,13 +9,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./activity-inscribe.page.scss'],
 })
 export class ActivityInscribePage implements OnInit {
-  activity = {
+  activity: Activity = {
     name: 'Caminar en el parque',
     date: '28/09/2019',
     hour: '19:20',
     available: '2/3',
     stars: 2,
-    id: 1,
     image: './assets/images/ancianos-caminando.png',
     description: `Caminar es uno de los principales pasos de la locomoción entre los animales con patas. Caminar es típicamente más lento que correr y otros modos de andar. Caminar se define por una marcha de "péndulo invertido" en la que el cuerpo salta sobre la extremidad rígida o las extremidades con cada paso`,
     partner: {
@@ -27,9 +27,12 @@ export class ActivityInscribePage implements OnInit {
     ],
     address: 'Calle 140 #30-40'
   }
-  constructor(public alertController: AlertController, private router: Router) { }
+  constructor(public alertController: AlertController, private router: Router, private firebase: FirebaseService) { }
 
   ngOnInit() {
+    // this.firebase.createActivity(this.activity).then(() => {
+    //   console.warn("ok")
+    // })
   }
 
   async inscribe() {
@@ -40,10 +43,7 @@ export class ActivityInscribePage implements OnInit {
         {
           text: 'Cancelar',
           role: 'cancel',
-          cssClass: 'secondary',
-          handler: (blah) => {
-            console.log('Confirm Cancel: blah');
-          }
+          cssClass: 'secondary'
         }, {
           text: 'Inscribir',
           cssClass: 'primary',
