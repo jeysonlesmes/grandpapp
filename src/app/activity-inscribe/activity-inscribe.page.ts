@@ -67,7 +67,7 @@ export class ActivityInscribePage implements OnInit {
     await alert.present();
 
     await alert.onDidDismiss().then((res) => {
-      this.router.navigate(['/tabs/tab2'])
+      this.router.navigate(['/mentor/tab2'])
     })
   }
 
