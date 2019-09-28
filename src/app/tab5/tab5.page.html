@@ -26,7 +26,7 @@
   
   <div [ngSwitch]="event">
     <ion-list *ngSwitchCase="'coming'">
-      <ion-card *ngFor="let activity of activities" [routerLink]="['/detail-activity/', activity.id]">
+      <ion-card *ngFor="let activity of activities" [routerLink]="['/detail-partner/', activity.id]">
         <ion-grid>
           <ion-row>
             <ion-col size="8">

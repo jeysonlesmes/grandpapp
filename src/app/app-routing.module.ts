@@ -6,6 +6,7 @@ const routes: Routes = [
   { path: 'detail-grandpa/:id', loadChildren: './detail-grandpa/detail-grandpa.module#DetailGrandpaPageModule' },
   { path: 'activities-search/:activity', loadChildren: './activities-search/activities-search.module#ActivitiesSearchPageModule' },
   { path: 'activity-inscribe', loadChildren: './activity-inscribe/activity-inscribe.module#ActivityInscribePageModule' },
+	{ path: 'xxx', loadChildren: './signin/signin.module#SigninPageModule' },
   { path: '', loadChildren: './login/login.module#LoginPageModule' },
   {
     path: '',
@@ -15,7 +16,9 @@ const routes: Routes = [
 		path: '', 
 		loadChildren: () => import('./tabs-partner/tabs-partner.module').then(m => m.TabsPartnerPageModule)
 	},
-  { path: 'activity-partner/:activity', loadChildren: './activity-partner/activity-partner.module#ActivityPartnerPageModule' }
+  { path: 'activity-partner/:activity', loadChildren: './activity-partner/activity-partner.module#ActivityPartnerPageModule' },
+  { path: 'detail-partner/:id', loadChildren: './detail-partner/detail-partner.module#DetailPartnerPageModule' }
+  
 ];
 @NgModule({
   imports: [

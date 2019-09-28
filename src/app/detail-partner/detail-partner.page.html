@@ -1,0 +1,65 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+      <ion-title>
+        Actividad
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+    <ion-card>
+      <img src="{{ activity.image }}">
+      <ion-card-header>
+        <ion-card-subtitle>{{ activity.date }} {{ activity.hour }}</ion-card-subtitle>
+        <ion-card-title>{{ activity.name }}</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+        {{ activity.description }}
+      </ion-card-content>
+
+      <div class="separator"></div>
+      
+      <ion-card-header style="padding-left: 0">
+        <ion-item>
+          <ion-avatar slot="start">
+            <img src="{{ activity.partner.image }}">
+          </ion-avatar>
+          <ion-label>
+            <h2><strong>{{ activity.partner.name }}</strong> / <span class="partner">Partner</span></h2>
+            <p>Residente del sector desde hace mas de 28 años</p>
+          </ion-label>
+        </ion-item>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <ion-card-title>{{ activity.address }}</ion-card-title><br>
+        <ion-grid style="padding-left: 0">
+          <ion-row>
+            <ion-col size="4" *ngFor="let image of activity.images">
+              <ion-img [src]="image"></ion-img>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+
+      <div class="separator"></div>
+
+      <ion-card-content>
+        <ion-card-title>Confirmados</ion-card-title><br>
+        <ion-item *ngFor="let grandpa of activity.inscribed">
+          <ion-avatar slot="start">
+            <img src="{{ grandpa.image }}">
+          </ion-avatar>
+          <ion-label>
+            <h2>{{ grandpa.name }}</h2>
+            <p>{{ grandpa.description }}</p>
+          </ion-label>
+          <ion-icon slot="end" name="checkmark" color="success"></ion-icon>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+</ion-content>
