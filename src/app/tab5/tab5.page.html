@@ -12,11 +12,11 @@
 <ion-content>
   <div padding>
     <ion-segment [(ngModel)]="event">
-      <ion-segment-button value="progress">
-        En curso
-      </ion-segment-button>
       <ion-segment-button value="coming">
         Próximos
+      </ion-segment-button>
+      <ion-segment-button value="progress">
+        En curso
       </ion-segment-button>
       <ion-segment-button value="completed">
         Realizados
@@ -25,7 +25,7 @@
   </div>
   
   <div [ngSwitch]="event">
-    <ion-list *ngSwitchCase="'progress'">
+    <ion-list *ngSwitchCase="'coming'">
       <ion-card *ngFor="let activity of activities" [routerLink]="['/detail-activity/', activity.id]">
         <ion-grid>
           <ion-row>
