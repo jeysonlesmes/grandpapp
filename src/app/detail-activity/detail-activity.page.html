@@ -29,8 +29,8 @@
             <img src="{{ activity.partner.image }}">
           </ion-avatar>
           <ion-label>
-            <h2>{{ activity.partner.name }} / <span class="partner">Partner</span></h2>
-            <p>I've got enough on my plate as it is, and I...</p>
+            <h2><strong>{{ activity.partner.name }}</strong> / <span class="partner">Partner</span></h2>
+            <p>Residente del sector desde hace mas de 28 años</p>
           </ion-label>
         </ion-item>
       </ion-card-header>
@@ -49,6 +49,7 @@
       <div class="separator"></div>
 
       <ion-card-content>
+        <ion-card-title>Checkin</ion-card-title><br>
         <ion-item *ngFor="let grandpa of activity.inscribed">
           <ion-avatar slot="start">
             <img src="{{ grandpa.image }}">

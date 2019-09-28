@@ -14,20 +14,20 @@ export class Tab1Page {
   {
     this.grandpas.push({
       id: 1,
-      name: 'Nombre',
-      description: 'Descripción',
-      image: 'https://d286ib5nnf9jej.cloudfront.net/wp-content/uploads/2017/01/the-smartcane-baston-inteligente-mediatrends-3-1-750x500.jpg'
+      name: 'José Rodríguez',
+      description: 'Yoga, Caminar, Ajedrez',
+      image: './assets/images/grandpa-1.jpg'
     })
     this.grandpas.push({
       id: 2,
-      name: 'Nombre',
-      description: 'Descripción',
-      image: 'https://d286ib5nnf9jej.cloudfront.net/wp-content/uploads/2017/01/the-smartcane-baston-inteligente-mediatrends-3-1-750x500.jpg'
+      name: 'Nelly Duarte',
+      description: 'Caminar, Ajedrez',
+      image: './assets/images/grandpa-2.png'
     })
     this.grandpas.push({
       id: 3,
-      name: 'Nombre',
-      description: 'Descripción',
+      name: 'Carlos Mora',
+      description: 'Caminar, Hablar, Karaoke',
       image: 'https://d286ib5nnf9jej.cloudfront.net/wp-content/uploads/2017/01/the-smartcane-baston-inteligente-mediatrends-3-1-750x500.jpg'
     })
   }

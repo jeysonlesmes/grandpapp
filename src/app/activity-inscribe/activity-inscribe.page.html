@@ -29,8 +29,8 @@
             <img src="{{ activity.partner.image }}">
           </ion-avatar>
           <ion-label>
-            <h2>{{ activity.partner.name }} / <span class="partner">Partner</span></h2>
-            <p>I've got enough on my plate as it is, and I...</p>
+            <h2><strong>{{ activity.partner.name }}</strong> / <span class="partner">Partner</span></h2>
+            <p>Residente del sector desde hace mas de 28 años</p>
           </ion-label>
         </ion-item>
       </ion-card-header>
@@ -49,9 +49,9 @@
       <div class="separator"></div>
 
       <ion-card-content>
-        <ion-button color="success">
+        <ion-button color="primary" (click)="inscribe()" >
           <ion-icon name="checkmark"></ion-icon>
-          <ion-label>Inscribirme</ion-label>
+          <ion-label>Inscribírlo</ion-label>
         </ion-button>
       </ion-card-content>
     </ion-card>
