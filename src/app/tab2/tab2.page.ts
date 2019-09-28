@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  event: String = 'progress'
+  event: String = 'coming'
   activities: Array<any> = [
     {
       name: 'Ajedrez',
@@ -19,7 +19,7 @@ export class Tab2Page {
       image: './assets/images/ajedrez.jpg'
     },
     {
-      name: 'Caminata',
+      name: 'Caminata en el parque',
       date: '28/09/2019',
       hour: '19:20',
       available: '1/3',

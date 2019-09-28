@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-activity-inscribe',
@@ -8,32 +9,66 @@ import { AlertController } from '@ionic/angular';
 })
 export class ActivityInscribePage implements OnInit {
   activity = {
-    name: 'Caminar',
+    name: 'Caminar en el parque',
     date: '28/09/2019',
     hour: '19:20',
     available: '2/3',
     stars: 2,
     id: 1,
-    image: './assets/images/actividadajedrez.jpg',
-    description: `Ajedrez para personas mayores y adultos tienen también un lugar en Grandapp. Haciendo que los participantes, además de divertirse, desarrollen sus capacidades cognitivas. Y tengan la oportunidad de aprender a jugar al ajedrez en caso de que nunca lo hayan practicado antes.`,
+    image: './assets/images/ancianos-caminando.png',
+    description: `Caminar es uno de los principales pasos de la locomoción entre los animales con patas. Caminar es típicamente más lento que correr y otros modos de andar. Caminar se define por una marcha de "péndulo invertido" en la que el cuerpo salta sobre la extremidad rígida o las extremidades con cada paso`,
     partner: {
-      name: 'Carlos',
+      name: 'Carlos Pérez',
       image: './assets/images/partner-1.jpeg'
     },
     images: [
-      './assets/images/lugar-ajedrez.jpeg',
-      './assets/images/lugar-ajedrez.jpg',
+      './assets/images/caminata-1.jpg',
+      './assets/images/caminata-2.jpg',
     ],
-    address: 'Calle 1 #1-1'
+    address: 'Calle 140 #30-40'
   }
-  constructor() { }
+  constructor(public alertController: AlertController, private router: Router) { }
 
   ngOnInit() {
   }
 
-  inscribir()
-  {
+  async inscribe() {
+    const alert = await this.alertController.create({
+      header: 'Confirmar',
+      message: '¿Estás seguro de inscribir a: <strong>José Rodríguez</strong> a esta actividad?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Inscribir',
+          cssClass: 'primary',
+          handler: () => {
+            this.presentAlert()
+          }
+        }
+      ]
+    });
 
+    await alert.present();
+  }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Éxito',
+      message: 'Se ha inscrito exitósamente a la actividad',
+      buttons: ['Listo']
+    });
+
+    await alert.present();
+
+    await alert.onDidDismiss().then((res) => {
+      this.router.navigate(['/tabs/tab2'])
+    })
   }
 
 }

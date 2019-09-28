@@ -9,8 +9,8 @@ import { ActivatedRoute } from '@angular/router';
 export class DetailGrandpaPage implements OnInit {
   grandpa: any = {
     image: './assets/images/grandpa-1.jpg',
-    name: 'Nombre',
-    description: 'Descripción'
+    name: 'José Rodríguez',
+    description: 'Le gusta caminar, es un buen conversador y persona. Retirado del ejército'
   }
 
   constructor(private activatedRoute: ActivatedRoute) { }
