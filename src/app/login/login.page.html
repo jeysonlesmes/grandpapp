@@ -1,12 +1,12 @@
 
-<h1 text-center >Regístrate</h1>
-<p text-center style="font-size: 20px; padding:10px 20px;">Haz parte de la comunidad más grande en Colombia para apoyo a la tercera edad.</p>
+<h1 ion-text-center style="text-align: center;">Regístrate</h1>
+<p ion-text-center style="font-size: 20px; padding:10px 20px;">Haz parte de la comunidad más grande en Colombia para apoyo a la tercera edad.</p>
 
 <ion-grid>
 	<ion-row>
 	<ion-col size="1"></ion-col>
 	<ion-col size="5">
-		<img (click)="goToPartner()" src="./assets/images/boton_soy_partner.png" />
+		<img [routerLink]="['../tabs-partner/']" src="./assets/images/boton_soy_partner.png" />
 	</ion-col>
 	<ion-col size="5">
 		<img (click)="goToMentor()" src="./assets/images/boton_soy_mentor.png"/>
