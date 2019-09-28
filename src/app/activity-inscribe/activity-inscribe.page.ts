@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { FirebaseService, Activity } from '../../../src/app/firebase.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-activity-inscribe',
@@ -9,7 +10,7 @@ import { FirebaseService, Activity } from '../../../src/app/firebase.service';
   styleUrls: ['./activity-inscribe.page.scss'],
 })
 export class ActivityInscribePage implements OnInit {
-  activity: Activity = {
+  newActivity: Activity = {
     name: 'Caminar en el parque',
     date: '28/09/2019',
     hour: '19:20',
@@ -27,12 +28,21 @@ export class ActivityInscribePage implements OnInit {
     ],
     address: 'Calle 140 #30-40'
   }
-  constructor(public alertController: AlertController, private router: Router, private firebase: FirebaseService) { }
+
+  activity: Activity = null
+
+  constructor(private activatedRoute: ActivatedRoute, public alertController: AlertController, private router: Router, private firebase: FirebaseService) { }
 
   ngOnInit() {
-    // this.firebase.createActivity(this.activity).then(() => {
+    // this.firebase.createActivity(this.newActivity).then(() => {
     //   console.warn("ok")
     // })
+
+    let id = this.activatedRoute.snapshot.paramMap.get('id');
+
+    this.firebase.getActivity(id).subscribe(activity => {
+      this.activity = activity
+    })
   }
 
   async inscribe() {

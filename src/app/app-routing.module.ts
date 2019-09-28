@@ -5,8 +5,8 @@ const routes: Routes = [
   { path: 'detail-activity/:id', loadChildren: './detail-activity/detail-activity.module#DetailActivityPageModule' },
   { path: 'detail-grandpa/:id', loadChildren: './detail-grandpa/detail-grandpa.module#DetailGrandpaPageModule' },
   { path: 'activities-search/:activity', loadChildren: './activities-search/activities-search.module#ActivitiesSearchPageModule' },
-  { path: 'activity-inscribe', loadChildren: './activity-inscribe/activity-inscribe.module#ActivityInscribePageModule' },
 	{ path: 'xxx', loadChildren: './signin/signin.module#SigninPageModule' },
+  { path: 'activity-inscribe/:id', loadChildren: './activity-inscribe/activity-inscribe.module#ActivityInscribePageModule' },
   { path: '', loadChildren: './login/login.module#LoginPageModule' },
   {
     path: '',
