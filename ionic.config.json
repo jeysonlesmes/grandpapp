@@ -1,5 +1,7 @@
 {
   "name": "grandpapp",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
